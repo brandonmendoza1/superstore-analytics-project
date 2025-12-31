@@ -1,14 +1,24 @@
 # Superstore Analytics Project
-This repository contains an end-to-end analytics workflow performed on the **Superstore** dataset using Excel, Power Query, Tableau, and statistical modeling techniques.
+## 📌 Project Overview
+This project analyzes customer and order data performed on the **Superstore** dataset using Excel, Power Query, and the regression modeling technique. The goal is to integrate multiple data sources, engineer new features, and apply regression analysis to understand factors influencing order behavior and fulfillment timing.
 
 The project demonstrates skills in:
 - Data cleaning & preparation
+- Feature engineering
 - Exploratory data analysis
 - Regression modeling
 - Shipping performance evaluation
-- Customer/segment profitability analysis
 - Dashboard planning
-- Predictive modeling foundations
+
+### 🧠 **Key Objectives**
+- Combine customer and order data into a unified analytical dataset
+- Engineer a new variable measuring fulfillment speed
+- Use regression analysis to examine relationships between variables
+- Build a dashboard to communicate insights clearly
+### 🗂️ **Data Sources**
+The project uses two primary tables from the Superstore dataset:
+- Customers: customer demographics and segment information
+- Orders: order details including order date and ship date
 
 ---
 
