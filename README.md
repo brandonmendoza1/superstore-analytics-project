@@ -16,9 +16,11 @@ The project demonstrates skills in:
 - Use regression analysis to examine relationships between variables
 - Build a dashboard to communicate insights clearly
 ### 🗂️ **Data Sources**
-The project uses two primary tables from the [Superstore dataset](Superstore Dataset.xlsx):
+The project uses two primary tables from the Superstore Dataset:
 - Customers: customer demographics and segment information
 - Orders: order details including order date and ship date
+
+Excel File: [Superstore Dataset](superstore_dataset.xlsx)
 
 ---
 
