@@ -1,19 +1,28 @@
 # Superstore Analytics Project
 ## 📌 Project Overview
-This project analyzes customer and order data performed on the **Superstore** dataset using Excel, Power Query, and the regression modeling technique. The goal is to integrate multiple data sources, engineer new features, and apply regression analysis to understand factors influencing order behavior and fulfillment timing.
+This is a self-directed Excel analytics project analyzing customer and order data from the `Superstore Dataset` using Excel, Power Query, and the regression modeling technique. I independently defined the project objectives, designed the analytical workflow, engineered new features, and applied regression analysis to explore factors influencing order fulfillment performance.
 
 The project demonstrates skills in:
-- Data cleaning & preparation
+- Data cleaning & integration
 - Feature engineering
-- Exploratory data analysis
-- Regression modeling
+- Regression analysis
 - Shipping performance evaluation
 - Dashboard planning
 
+### 🧩 Problem Framing & Project Motivation
+Identify operationally relevant questions that could be answered using customer and order data.
+
+I asked:
+- How can customer and order data be combined to support operational analysis?
+- What measurable variable can capture order fulfillment efficiency?
+- Which customer or order characteristics may be associated with shipping delays?
+
+These questions guided the data preparation, feature engineering, modeling, and dashboard design decisions throughout the project.
+
 ### 🧠 **Key Objectives**
 - Combine customer and order data into a unified analytical dataset
-- Engineer a new variable measuring fulfillment speed
 - Use regression analysis to examine relationships between variables
+- Engineer a new variable measuring fulfillment speed
 - Build a dashboard to communicate insights clearly
 ### 🗂️ **Data Sources**
 The project uses two primary tables from the Superstore Dataset:
@@ -22,9 +31,24 @@ The project uses two primary tables from the Superstore Dataset:
 
 Excel File: [Superstore Dataset](superstore_dataset.xlsx)
 
+Alternatively, the Excel file can be accessed within this repository above `superstore_dataset.xlsx`
+
 ---
 
-## 📊 1. Regression Analysis (Profit Prediction)
+### 🔧 Data Preparation & Transformation
+1. Data Integration (Power Query)
+- Used Excel Power Query to merge the Customers and Orders tables
+- Synchronized the tables using a shared key
+- Created a consolidated table named `CO Combined`
+
+2. Feature Engineering
+- Duplicated the combined table into CO Combined Revised
+- Created a new calculated field:
+  - **OrderLagDays** = number of days between **Order Date** and **Ship Date**
+
+This variable captures **order fulfillment delay**, an important operational performance metric
+
+## 📈 Regression Analysis (Profit Prediction)
 
 **Objective:**  
 Identify whether *Sales*, *Quantity*, *Discount*, and *Shipping Mode* predict **Profit**.
