@@ -48,87 +48,67 @@ Alternatively, the Excel file can be accessed within this repository above `supe
 
 This variable captures **order fulfillment delay**, an important operational performance metric
 
-## 📈 Regression Analysis (Profit Prediction)
+## 📈 Regression Analysis
 
-**Objective:**  
-Identify whether *Sales*, *Quantity*, *Discount*, and *Shipping Mode* predict **Profit**.
+### Objective
+The objective of the regression analysis was to explore which customer and order characteristics are associated with variation in order fulfillment speed, as measured by **OrderLagDays**.
 
-### Work Completed:
-- Built a multiple regression model in Excel.
-- Verified assumptions using:
-  - Scatterplots  
-  - Residual analysis  
-  - Multicollinearity checks  
-- Identified statistically significant predictors.
-- Exported all regression outputs and charts.
+Rather than predicting outcomes for deployment, the model was used as an **exploratory analytical tool** to better understand relationships within the data and identify variables that may contribute to fulfillment delays.
 
-### Key Insights:
-- **Discount** had the strongest negative effect on profit.
-- **Sales** positively predicted profit, but with diminishing returns.
-- Shipping mode showed minimal direct effect when controlling for other variables.
+### Dummy Variables & Modeling
+- Categorical variables (such as customer segment) were converted into **dummy variables** to allow inclusion in the regression model  
+- A multiple linear regression model was run using Excel’s Analysis ToolPak  
+- Model outputs were evaluated using:
+  - Coefficient direction and magnitude  
+  - Statistical significance (p-values)  
+  - Overall model fit  
 
----
+This approach allowed for structured comparison across customer segments and order attributes while controlling for multiple variables simultaneously.
+## 💡 Key Insights
+- **Shipping mode is the primary variable associated with fulfillment delay** in this model. Same Day, First Class, and Second Class shipping options are all statistically significant and are associated with fewer **OrderLagDays** relative to the baseline shipping method.
+- **Customer segment variables** (Consumer, Corporate, Home Office) are not statistically significant, suggesting that customer type alone does not meaningfully explain variation in fulfillment speed once shipping method is accounted for.
+- **Geographic variables** (East, West, South) are also not statistically significant, indicating that regional differences do not appear to drive fulfillment delays in this dataset.
+- **Order-level characteristics**, including quantity, discount usage, and holiday timing, do not show significant relationships with fulfillment delay in the presence of shipping method controls.
+- Overall, the regression results suggest that **fulfillment performance is driven more by operational choices (shipping method) than by customer demographics or order attributes**.
 
-## 🚚 2. Shipping Mode Analysis
-
-**Objective:**  
-Determine whether certain shipping modes are associated with higher/lower profitability.
-
-### Work Completed:
-- Created bar charts of:
-  - Average sales per ship mode  
-  - Average profit per ship mode  
-  - Count of orders per ship mode  
-- Explored relationship between shipping mode and return rates (if applicable).
-
-### Key Insights:
-- Standard Class was the most frequently used but not the most profitable.
-- Second Class and First Class had higher per-order profitability.
+These findings are exploratory and highlight shipping method as the most relevant operational lever for further investigation.
 
 ---
 
-## 👥 3. Customer Profitability & Segmentation Analysis
+## 📦 Shipping Mode Analysis
+Regression results indicate that **shipping mode is the only statistically significant factor** associated with variation in order fulfillment delay (**OrderLagDays**) in this model.
 
-**Objective:**  
-Understand which customer groups drive business results.
+Using Standard Class as the baseline category, all expedited shipping options show significantly shorter fulfillment times:
+- **Same Day** shipping is associated with an average reduction of approximately **2.63 days**
+- **First Class** shipping reduces fulfillment time by approximately **2.27 days**
+- **Second Class** shipping reduces fulfillment time by approximately **1.38 days**
 
-### Work Completed:
-- Created pivot tables summarizing:
-  - Profit per customer
-  - Sales per customer
-  - Profitability by customer segment
-- Built highlight tables and rankings.
-- Prepared data for later clustering (k-means).
+These findings are consistent with the descriptive analysis of the data. Average order lag decreases monotonically as shipping speed increases, with Standard Class exhibiting the highest average lag and Same Day the lowest.
 
-### Key Insights:
-- Corporate segment generated the highest total profit.
-- Home Office segment had lower volume but higher profit margins.
-- Some customers were consistently unprofitable — potential targets for discount policy changes.
+Together, the regression and summary statistics suggest that **fulfillment performance in this dataset is driven primarily by operational shipping choices rather than customer demographics, geography, or order attributes**.
 
 ---
 
-## 📦 4. Product-Level Performance
+## 📊 Dashboard & Visualization
+An Excel dashboard was created to support exploratory analysis and visually reinforce findings from the regression model.
 
-**Objective:**  
-Evaluate which product categories/subcategories drive results.
+### Top Ordering Cities (Including Segments)
+A stacked bar chart displays the number of orders by city, segmented by customer type (Consumer, Corporate, Home Office). This visualization highlights:
+- Cities with the highest order volume (e.g., Los Angeles, New York City, Philadelphia)
+- The distribution of customer segments within high-volume cities
+- How order activity is concentrated geographically while customer mix remains relatively balanced
 
-### Work Completed:
-- Category and Sub-Category performance analysis
-- Product-level Pareto (80/20) analysis
-- Profitability and return risk comparison
+This chart provides business context around where orders originate, while supporting the regression finding that customer segment itself is not a primary driver of fulfillment delay.
 
----
+### Average Fulfillment Lag by Shipping Mode
+A bar chart compares the average **OrderLagDays** across shipping methods. The visualization shows a clear monotonic pattern:
+- **Same Day** has the lowest average lag (~2.16 days)
+- **First Class** and **Second Class** show progressively higher lag
+- **Standard Class** has the highest average lag (~4.76 days)
 
-## 🧠 5. Preparation for Predictive Modeling (K-Means, CART)
+These descriptive statistics closely align with the regression results, reinforcing that **shipping mode is the most influential factor associated with fulfillment speed** in the dataset.
 
-Though K-means and decision trees were not executed in Excel, prep work was completed:
-- Cleaned customer-level dataset
-- Engineered fields for clustering:
-  - Total Sales
-  - Total Orders
-  - Total Profit
-  - Average Discount
-  - Segment/Region indicators
+Together, the dashboard complements the statistical analysis by pairing regression findings with intuitive, stakeholder-friendly visuals.
 
 ---
 
