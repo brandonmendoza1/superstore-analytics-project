@@ -1,5 +1,6 @@
 # Superstore Analytics Project
 ## 📌 Project Overview
+![Excel Dashboard Overview](images/dashboard_overview.png)
 This is a self-directed Excel analytics project analyzing customer and order data from the `Superstore Dataset` using Excel, Power Query, and the regression modeling technique. I independently defined the project objectives, designed the analytical workflow, engineered new features, and applied regression analysis to explore factors influencing order fulfillment performance.
 
 The project demonstrates skills in:
