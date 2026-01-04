@@ -108,41 +108,31 @@ A bar chart compares the average **OrderLagDays** across shipping methods. The v
 
 These descriptive statistics closely align with the regression results, reinforcing that **shipping mode is the most influential factor associated with fulfillment speed** in the dataset.
 
-Together, the dashboard complements the statistical analysis by pairing regression findings with intuitive, stakeholder-friendly visuals.
-
----
-
-## 📈 6. Dashboard Planning (Next Steps in Tableau/PowerBI)
-
-Dashboard ideas implemented or prepared:
-- Customer Profitability Dashboard
-- Segment Performance Dashboard
-- Product Mix Dashboard
-- Shipping Mode Overview
-- Profit Drivers from Regression
+Together, the dashboard complements the statistical analysis by pairing regression findings with an intuitive visual.
 
 ---
 
 ## 🛠 Tools Used
 
-- **Excel** (primary analytics, regression, charts)
-- Power Query (data transformation)
-- Tableau / Power BI (visualization & modeling)
-- GitHub (version control & portfolio)
+- **Microsoft Excel**
+  - Power Query for data integration and transformation
+  - Pivot Tables for exploratory analysis (**Average Lag**)
+  - Regression Analysis ToolPak for statistical modeling
+  - Calculated fields and dummy variables to set up the regression model
+  - Dashboards and charts for data visualization
+- **Analytical Techniques**
+  - Data cleaning and table synchronization
+  - Feature engineering (OrderLagDays)
+  - Multiple linear regression
+  - Descriptive statistics and visual validation
 
 ---
 
-## 📘 Summary
+## 🧾 Summary
+This project demonstrates an end-to-end, self-directed analytical workflow using Excel. Starting with raw customer and order data, I integrated multiple tables, engineered an operational performance metric, and applied regression analysis to explore drivers of order fulfillment delay.
 
-This project showcases Excel-based business analytics with a full workflow:
-1. Cleaning data  
-2. Modeling  
-3. Visualization  
-4. Business insight generation  
+The analysis identified **shipping mode** as the primary factor associated with fulfillment speed, a finding that was reinforced through descriptive statistics and dashboard visualizations. Customer demographics, geographic variables, and order-level characteristics were not statistically significant once shipping method was accounted for.
 
-It demonstrates strong analytical reasoning, statistical modeling fundamentals, and business intelligence preparation.
+Overall, this project highlights my ability to independently frame analytical questions, apply appropriate statistical techniques and communicate them through both models and visuals in a business-relevant context.
 
 ---
-
-If you'd like to see the dashboard visuals or run future machine learning models (k-means, CART), feel free to explore the Tableau or future notebooks.
-
