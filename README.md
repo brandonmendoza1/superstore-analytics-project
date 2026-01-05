@@ -37,6 +37,7 @@ Alternatively, the Excel file can be accessed within this repository above `supe
 ---
 
 ### 🔧 Data Preparation & Transformation
+![Order-Level Aggregration in Power Query](images/custom_groupby.png)
 1. Data Integration (Power Query)
 - Used Excel Power Query to merge the Customers and Orders tables
 - Synchronized the tables using a shared key
@@ -94,6 +95,7 @@ Together, the regression and summary statistics suggest that **fulfillment perfo
 An Excel dashboard was created to support exploratory analysis and visually reinforce findings from the regression model.
 
 ### Top Ordering Cities (Including Segments)
+![Top Ordering Cities by Segment](images/top_ordering_cities.png)
 A stacked bar chart displays the number of orders by city, segmented by customer type (Consumer, Corporate, Home Office). This visualization highlights:
 - Cities with the highest order volume (e.g., Los Angeles, New York City, Philadelphia)
 - The distribution of customer segments within high-volume cities
@@ -102,6 +104,7 @@ A stacked bar chart displays the number of orders by city, segmented by customer
 This chart provides business context around where orders originate, while supporting the regression finding that customer segment itself is not a primary driver of fulfillment delay.
 
 ### Average Fulfillment Lag by Shipping Mode
+![Average Lag by Shipping Mode](images/avg_lag_shipping_mode.png)
 A bar chart compares the average **OrderLagDays** across shipping methods. The visualization shows a clear monotonic pattern:
 - **Same Day** has the lowest average lag (~2.16 days)
 - **First Class** and **Second Class** show progressively higher lag
