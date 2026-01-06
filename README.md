@@ -31,7 +31,7 @@ The project uses two primary tables from the Superstore Dataset:
 
 Excel File: [Superstore Dataset](superstore_dataset.xlsx)
 
-Alternatively, the Excel file can be accessed within this repository above `superstore_dataset.xlsx`
+Alternatively, the Excel file `superstore_dataset.xlsx` can be accessed within this repository above.
 
 ---
 
@@ -62,16 +62,18 @@ This model was used as an **exploratory tool** to identify which variables were 
 ---
 
 ## 📦 Shipping Mode Analysis
-Regression results indicate that **shipping mode is the only statistically significant factor** associated with variation in order fulfillment delay (**OrderLagDays**) in this model.
 
-Using Standard Class as the baseline category, all expedited shipping options show significantly shorter fulfillment times:
+Because shipping mode emerged as the only statistically significant driver of fulfillment delay in the regression model, I examined it more closely using both the model coefficients and descriptive statistics.
+
+Using **Standard Class** as the baseline category, the regression results indicate:
 - **Same Day** shipping is associated with an average reduction of approximately **2.63 days**
-- **First Class** shipping reduces fulfillment time by approximately **2.27 days**
-- **Second Class** shipping reduces fulfillment time by approximately **1.38 days**
+- **First Class** shipping is associated with an average reduction of approximately **2.27 days**
+- **Second Class** shipping is associated with an average reduction of approximately **1.38 days**
 
-These findings are consistent with the descriptive analysis of the data. Average order lag decreases monotonically as shipping speed increases, with Standard Class exhibiting the highest average lag and Same Day the lowest.
+These results are consistent with the summary statistics shown in the dashboard: average order lag decreases monotonically as shipping speed increases, with Standard Class exhibiting the highest average lag and Same Day the lowest.
 
-Together, the regression and summary statistics suggest that **fulfillment performance in this dataset is driven primarily by operational shipping choices rather than customer demographics, geography, or order attributes**.
+Together, the regression and descriptive analysis reinforce the conclusion that **fulfillment performance in this dataset is driven primarily by operational shipping choices rather than customer demographics, geography, or order attributes**.
+![Average Lag by Shipping Mode](images/avg_lag_shipping_mode.png)
 
 ---
 
@@ -88,15 +90,9 @@ A stacked bar chart displays the number of orders by city, segmented by customer
 This chart provides business context around where orders originate, while supporting the regression finding that customer segment itself is not a primary driver of fulfillment delay.
 
 ### Average Fulfillment Lag by Shipping Mode
-![Average Lag by Shipping Mode](images/avg_lag_shipping_mode.png)
-A bar chart compares the average **OrderLagDays** across shipping methods. The visualization shows a clear monotonic pattern:
-- **Same Day** has the lowest average lag (~2.16 days)
-- **First Class** and **Second Class** show progressively higher lag
-- **Standard Class** has the highest average lag (~4.76 days)
+The dashboard includes a bar chart comparing average **OrderLagDays** across shipping methods. The visualization shows a clear monotonic pattern, with Same Day shipments having the lowest average lag and Standard Class the highest.
 
-These descriptive statistics closely align with the regression results, reinforcing that **shipping mode is the most influential factor associated with fulfillment speed** in the dataset.
-
-Together, the dashboard complements the statistical analysis by pairing regression findings with an intuitive visual.
+This view provides a quick, visual summary of fulfillment performance by shipping method and complements the regression-based analysis discussed above.
 
 ---
 
