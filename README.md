@@ -38,10 +38,12 @@ Alternatively, the Excel file can be accessed within this repository above `supe
 
 ### 🔧 Data Preparation & Transformation
 ![Order-Level Aggregration in Power Query](images/custom_groupby.png)
+![OrderLagDays Feature Engineering](images/orderlagdays_column.png)
 1. Data Integration (Power Query)
 - Used Excel Power Query to merge the Customers and Orders tables
 - Synchronized the tables using a shared key
 - Created a consolidated table named `CO Combined`
+![Merging Customers and Orders](images/power_query_merge.png)
 
 2. Feature Engineering
 - Duplicated the combined table into CO Combined Revised
@@ -51,29 +53,20 @@ Alternatively, the Excel file can be accessed within this repository above `supe
 This variable captures **order fulfillment delay**, an important operational performance metric
 
 ## 📈 Regression Analysis
+To formally evaluate drivers of order fulfillment delay, I constructed a multiple linear regression model with **OrderLagDays** as the dependent variable.
 
-### Objective
-The objective of the regression analysis was to explore which customer and order characteristics are associated with variation in order fulfillment speed, as measured by **OrderLagDays**.
+Categorical variables (including shipping mode, customer segment, and region) were converted into **dummy variables** to allow for structured comparison across categories while holding other factors constant. The regression was run using Excel’s Analysis ToolPak, and model outputs were evaluated based on coefficient direction, statistical significance (p-values), and overall model fit.
 
-Rather than predicting outcomes for deployment, the model was used as an **exploratory analytical tool** to better understand relationships within the data and identify variables that may contribute to fulfillment delays.
+This modeling approach enabled simultaneous control across customer, geographic, and order-level attributes, allowing the analysis to isolate which factors were meaningfully associated with fulfillment delay.
 
-### Dummy Variables & Modeling
-- Categorical variables (such as customer segment) were converted into **dummy variables** to allow inclusion in the regression model  
-- A multiple linear regression model was run using Excel’s Analysis ToolPak  
-- Model outputs were evaluated using:
-  - Coefficient direction and magnitude  
-  - Statistical significance (p-values)  
-  - Overall model fit  
-
-This approach allowed for structured comparison across customer segments and order attributes while controlling for multiple variables simultaneously.
 ## 💡 Key Insights
-- **Shipping mode is the primary variable associated with fulfillment delay** in this model. Same Day, First Class, and Second Class shipping options are all statistically significant and are associated with fewer **OrderLagDays** relative to the baseline shipping method.
-- **Customer segment variables** (Consumer, Corporate, Home Office) are not statistically significant, suggesting that customer type alone does not meaningfully explain variation in fulfillment speed once shipping method is accounted for.
+- **Shipping mode is the primary variable associated with fulfillment delay** in this model. Same Day, First Class, and Second Class shipping options are all statistically significant and are associated with fewer **OrderLagDays** relative to the baseline shipping method (Standard Class).
+- **Customer segment variables** (Consumer, Corporate, Home Office) are not statistically significant, suggesting that customer type does not meaningfully explain variation in fulfillment speed once shipping method is accounted for.
 - **Geographic variables** (East, West, South) are also not statistically significant, indicating that regional differences do not appear to drive fulfillment delays in this dataset.
-- **Order-level characteristics**, including quantity, discount usage, and holiday timing, do not show significant relationships with fulfillment delay in the presence of shipping method controls.
-- Overall, the regression results suggest that **fulfillment performance is driven more by operational choices (shipping method) than by customer demographics or order attributes**.
+- **Order-level characteristics**, including quantity, discount usage, and holiday timing, do not show significant relationships with fulfillment delay when controlling for shipping method.
+- Overall, the results suggest that **fulfillment performance is driven more by operational decisions (shipping method) than by customer demographics or order attributes**.
 
-These findings are exploratory and highlight shipping method as the most relevant operational lever for further investigation.
+These findings are exploratory and highlight shipping method as the most relevant operational lever for further analysis and visualization.
 
 ---
 
