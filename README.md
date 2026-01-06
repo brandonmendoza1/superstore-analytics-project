@@ -104,10 +104,7 @@ This view provides a quick, visual summary of fulfillment performance by shippin
 ---
 
 ## 🧾 Summary
-This project demonstrates an end-to-end, self-directed analytical workflow using Excel. Starting with raw customer and order data, I integrated multiple tables, engineered an operational performance metric, and applied regression analysis to explore drivers of order fulfillment delay.
 
-The analysis identified **shipping mode** as the primary factor associated with fulfillment speed, a finding that was reinforced through descriptive statistics and dashboard visualizations. Customer demographics, geographic variables, and order-level characteristics were not statistically significant once shipping method was accounted for.
-
-Overall, this project highlights my ability to independently frame analytical questions, apply appropriate statistical techniques and communicate them through both models and visuals in a business-relevant context.
+This project demonstrates a full analytical workflow using the Superstore dataset, from raw data integration and feature engineering to regression analysis and dashboard creation. By transforming line-item data into an order-level dataset and evaluating key predictors of fulfillment delay, the analysis found that **shipping mode** is the most meaningful operational driver of fulfillment performance. The project highlights practical Excel analytics skills and delivers insights relevant to business operations and decision-making.
 
 ---
