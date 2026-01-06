@@ -1,31 +1,30 @@
 # Superstore Analytics Project
 ## 📌 Project Overview
+This self-initiated project explores which operational factors are associated with order fulfillment delays using the Superstore dataset. The goal was to identify meaningful drivers of fulfillment performance and translate those findings into clear, decision-oriented insights.
+
+Using Excel, Power Query, and regression analysis, I integrated multiple data sources, engineered an order-level performance metric, and evaluated the statistical relevance of customer, geographic, and operational variables. The analysis ultimately identified **shipping method** as the primary factor associated with fulfillment delay.
 ![Excel Dashboard Overview](images/dashboard_overview.png)
-This is a self-directed Excel analytics project analyzing customer and order data from the `Superstore Dataset` using Excel, Power Query, and the regression modeling technique. I independently defined the project objectives, designed the analytical workflow, engineered new features, and applied regression analysis to explore factors influencing order fulfillment performance.
+This project demonstrates an end-to-end analytical workflow, from raw data preparation to modeling and visualization. After transforming line-item order data into an order-level dataset, I applied multiple linear regression to assess which variables were meaningfully associated with fulfillment delay.
 
-The project demonstrates skills in:
-- Data cleaning & integration
-- Feature engineering
-- Regression analysis
-- Shipping performance evaluation
-- Dashboard planning
+While customer segment, geographic region, and order characteristics were evaluated, shipping mode emerged as the most relevant operational lever. These findings were validated using pivot-based exploratory analysis and a dynamic Excel dashboard designed to communicate results clearly.
 
-### 🧩 Problem Framing & Project Motivation
-Identify operationally relevant questions that could be answered using customer and order data.
-
-I asked:
-- How can customer and order data be combined to support operational analysis?
-- What measurable variable can capture order fulfillment efficiency?
-- Which customer or order characteristics may be associated with shipping delays?
-
-These questions guided the data preparation, feature engineering, modeling, and dashboard design decisions throughout the project.
+- **Microsoft Excel**
+  - Power Query for data integration and transformation
+  - Pivot Tables for exploratory analysis
+  - Regression Analysis ToolPak for statistical modeling
+  - Dashboards and charts for visualization
+- **Analytical Techniques**
+  - Data cleaning and table synchronization
+  - Feature engineering (OrderLagDays)
+  - Dummy variable encoding
+  - Multiple linear regression
 
 ### 🧠 **Key Objectives**
 - Combine customer and order data into a unified analytical dataset
 - Use regression analysis to examine relationships between variables
 - Engineer a new variable measuring fulfillment speed
 - Build a dashboard to communicate insights clearly
-### 🗂️ **Data Sources**
+### 📂 **Data Source**
 The project uses two primary tables from the Superstore Dataset:
 - Customers: customer demographics and segment information
 - Orders: order details including order date and ship date
@@ -37,27 +36,20 @@ Alternatively, the Excel file can be accessed within this repository above `supe
 ---
 
 ### 🔧 Data Preparation & Transformation
+Power Query was used to integrate and transform the raw Superstore data into a modeling-ready dataset.
+
+The original orders data was recorded at the **line-item level**, with multiple rows per order due to multiple products per purchase. Because fulfillment delay is an **order-level outcome**, the data was aggregated to one row per order by grouping on Order ID and computing order-level metrics such as total quantity, discount usage, and average discount percent.
+
+I engineered the target variable **OrderLagDays** as the difference between Ship Date and Order Date. Customer attributes (segment and geographic information) were then merged into the order-level table via Customer ID using a left join. The resulting dataset served as the foundation for exploratory analysis, regression modeling, and dashboard visualization.
 ![Order-Level Aggregration in Power Query](images/custom_groupby.png)
 ![OrderLagDays Feature Engineering](images/orderlagdays_column.png)
-1. Data Integration (Power Query)
-- Used Excel Power Query to merge the Customers and Orders tables
-- Synchronized the tables using a shared key
-- Created a consolidated table named `CO Combined`
-![Merging Customers and Orders](images/power_query_merge.png)
-
-2. Feature Engineering
-- Duplicated the combined table into CO Combined Revised
-- Created a new calculated field:
-  - **OrderLagDays** = number of days between **Order Date** and **Ship Date**
-
-This variable captures **order fulfillment delay**, an important operational performance metric
 
 ## 📈 Regression Analysis
-To formally evaluate drivers of order fulfillment delay, I constructed a multiple linear regression model with **OrderLagDays** as the dependent variable.
+To formally evaluate drivers of fulfillment delay, I constructed a multiple linear regression model with **OrderLagDays** as the dependent variable.
 
-Categorical variables (including shipping mode, customer segment, and region) were converted into **dummy variables** to allow for structured comparison across categories while holding other factors constant. The regression was run using Excel’s Analysis ToolPak, and model outputs were evaluated based on coefficient direction, statistical significance (p-values), and overall model fit.
+Categorical variables (including shipping mode, customer segment, and region) were converted into dummy variables to allow structured comparison across categories while holding other factors constant. The regression was run using Excel’s Analysis ToolPak, and model outputs were evaluated based on coefficient direction, statistical significance, and overall model fit.
 
-This modeling approach enabled simultaneous control across customer, geographic, and order-level attributes, allowing the analysis to isolate which factors were meaningfully associated with fulfillment delay.
+This model was used as an **exploratory tool** to identify which variables were meaningfully associated with fulfillment delay rather than as a purely predictive model.
 ![Regression Analysis Output](images/regression_analysis.png)
 
 ## 💡 Key Insights
@@ -65,9 +57,7 @@ This modeling approach enabled simultaneous control across customer, geographic,
 - **Customer segment variables** (Consumer, Corporate, Home Office) are not statistically significant, suggesting that customer type does not meaningfully explain variation in fulfillment speed once shipping method is accounted for.
 - **Geographic variables** (East, West, South) are also not statistically significant, indicating that regional differences do not appear to drive fulfillment delays in this dataset.
 - **Order-level characteristics**, including quantity, discount usage, and holiday timing, do not show significant relationships with fulfillment delay when controlling for shipping method.
-- Overall, the results suggest that **fulfillment performance is driven more by operational decisions (shipping method) than by customer demographics or order attributes**.
-
-These findings are exploratory and highlight shipping method as the most relevant operational lever for further analysis and visualization.
+- Overall, the results suggest that **fulfillment performance is driven more by operational decisions than by customer demographics or order attributes**.
 
 ---
 
@@ -110,19 +100,10 @@ Together, the dashboard complements the statistical analysis by pairing regressi
 
 ---
 
-## 🛠 Tools Used
-
-- **Microsoft Excel**
-  - Power Query for data integration and transformation
-  - Pivot Tables for exploratory analysis (**Average Lag**)
-  - Regression Analysis ToolPak for statistical modeling
-  - Calculated fields and dummy variables to set up the regression model
-  - Dashboards and charts for data visualization
-- **Analytical Techniques**
-  - Data cleaning and table synchronization
-  - Feature engineering (OrderLagDays)
-  - Multiple linear regression
-  - Descriptive statistics and visual validation
+## ⚠️ Limitations & Next Steps
+- The regression model explains a moderate portion of the variation in fulfillment delay (R² ≈ 0.35) and is intended for exploratory insight rather than precise prediction.
+- Additional features such as product category, seasonal effects, or carrier-level data could further improve explanatory power.
+- Future analysis could explore non-linear models or validation on a larger dataset.
 
 ---
 
