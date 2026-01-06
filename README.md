@@ -58,6 +58,7 @@ To formally evaluate drivers of order fulfillment delay, I constructed a multipl
 Categorical variables (including shipping mode, customer segment, and region) were converted into **dummy variables** to allow for structured comparison across categories while holding other factors constant. The regression was run using Excel’s Analysis ToolPak, and model outputs were evaluated based on coefficient direction, statistical significance (p-values), and overall model fit.
 
 This modeling approach enabled simultaneous control across customer, geographic, and order-level attributes, allowing the analysis to isolate which factors were meaningfully associated with fulfillment delay.
+![Regression Analysis Output](images/regression_analysis.png)
 
 ## 💡 Key Insights
 - **Shipping mode is the primary variable associated with fulfillment delay** in this model. Same Day, First Class, and Second Class shipping options are all statistically significant and are associated with fewer **OrderLagDays** relative to the baseline shipping method (Standard Class).
